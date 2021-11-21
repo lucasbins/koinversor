@@ -14,9 +14,8 @@ class MyThemes {
     scaffoldBackgroundColor: Colors.white,
     primaryColor: Colors.black,
     appBarTheme: const AppBarTheme(
-        color: Colors.yellowAccent,
-        titleTextStyle: TextStyle(
-            color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+        color: Colors.white,
+        titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         primary: Colors.blue,
