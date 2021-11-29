@@ -1,47 +1,60 @@
-import 'dart:convert';
-
 class ResultCoin {
-  ResultCoin({
-    required this.high,
-    required this.low,
-    required this.vol,
-    required this.last,
-    required this.buy,
-    required this.sell,
-    required this.open,
-    required this.date,
-  });
+  late Ticker ticker;
 
-  double high;
-  double low;
-  double vol;
-  double last;
-  double buy;
-  double sell;
-  double open;
-  String date;
+  ResultCoin({required this.ticker});
 
-  factory ResultCoin.fromJson(String str) =>
-      ResultCoin.fromMap(json.decode(str));
+  ResultCoin.fromJson(Map<String, dynamic> json) {
+    ticker = (json['ticker'] != null ? Ticker.fromJson(json['ticker']) : null)!;
+  }
 
-  String toJson() => json.encode(toMap());
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ticker'] = ticker.toJson();
+    return data;
+  }
+}
 
-  factory ResultCoin.fromMap(Map<String, dynamic> json) => ResultCoin(
-        high: json["high"],
-        low: json["low"],
-        vol: json["vol"],
-        last: json["last"],
-        buy: json["buy"],
-        sell: json["sell"],
-        open: json["open"],
-        date: json["date"],
-      );
+class Ticker {
+  Ticker(
+      {required this.high,
+      required this.low,
+      required this.vol,
+      required this.last,
+      required this.buy,
+      required this.sell,
+      required this.open,
+      required this.date});
 
-  Map<String, dynamic> toMap() => {
-        "high": high,
-        "low": low,
-        "last": last,
-        "buy": buy,
-        "sell": sell,
-      };
+  late String high;
+  late String low;
+  late String vol;
+  late String last;
+  late String buy;
+  late String sell;
+  late String open;
+  late int date;
+
+  Ticker.fromJson(Map<String, dynamic> json) {
+    high = json['high'];
+    low = json['low'];
+    vol = json['vol'];
+    last = json['last'];
+    buy = json['buy'];
+    sell = json['sell'];
+    open = json['open'];
+    date = json['date'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['high'] = high;
+    data['low'] = low;
+    data['vol'] = vol;
+    data['last'] = last;
+    data['buy'] = buy;
+    data['sell'] = sell;
+    data['open'] = open;
+    data['date'] = date;
+    return data;
+  }
 }
