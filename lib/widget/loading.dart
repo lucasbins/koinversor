@@ -7,11 +7,11 @@ class Loading extends StatelessWidget {
     return Column(
       children: const <Widget>[
         CircularProgressIndicator(
-          color: Colors.amber,
+          color: Colors.white,
         ),
         Divider(
           height: 20,
-          color: Colors.white,
+          color: Colors.amber,
         ),
         Text(
           "Carregando Dados...",

@@ -11,7 +11,7 @@ void main() {
 
 class MyThemes {
   static final meuTema = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.amber,
     primaryColor: Colors.black,
     appBarTheme: const AppBarTheme(
         color: Colors.white,
