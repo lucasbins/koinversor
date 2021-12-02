@@ -5,6 +5,13 @@ import 'package:koinversor/service/mercado_bitcoin_service.dart';
 
 import 'package:koinversor/widget/loading.dart';
 
+class Item {
+  const Item(this.name, this.url, this.value);
+  final String name;
+  final String url;
+  final String value;
+}
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -161,6 +168,14 @@ class _HomePageState extends State<HomePage> {
 
   //dropdown para as escolhas das moedas a serem convertidas
   Widget _dropdown() {
+    List<Item> coin = [
+      const Item(' Bitcoin', 'lib/images/bitcoin.png', 'BTC'),
+      const Item(' Litecoin', 'lib/images/litecoin.png', 'LTC'),
+      const Item(' Cardano', 'lib/images/cardano.png', 'ADA'),
+      const Item(' Uniswap', 'lib/images/uniswap.png', 'UNI'),
+      const Item(' Usdc', 'lib/images/usdc.png', 'USDC'),
+    ];
+
     return DropdownButtonHideUnderline(
       child: DropdownButton<String>(
         value: _dropdownController,
@@ -171,10 +186,15 @@ class _HomePageState extends State<HomePage> {
         onChanged: (String? newValue) {
           setState(() => (_dropdownController = newValue!));
         },
-        items: coins.map((String value) {
+        items: coin.map((Item coin) {
           return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
+            value: coin.value,
+            child: Row(
+              children: [
+                Image.asset(coin.url, width: 30, height: 30),
+                Text(coin.name),
+              ],
+            ),
           );
         }).toList(),
       ),
