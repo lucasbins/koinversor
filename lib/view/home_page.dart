@@ -157,8 +157,13 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text('Reais',
-                  style: TextStyle(fontWeight: FontWeight.normal)),
+              Row(
+                children: [
+                  Image.asset('lib/images/real.png', width: 30, height: 30),
+                  const Text(' Reais',
+                      style: TextStyle(fontWeight: FontWeight.normal)),
+                ],
+              ),
               const Divider(),
               montaTextfield(controller),
             ]),

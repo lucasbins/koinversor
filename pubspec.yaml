@@ -63,7 +63,12 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - lib/images
+    - lib/images/bitcoin.png
+    - lib/images/litecoin.png
+    - lib/images/cardano.png
+    - lib/images/uniswap.png
+    - lib/images/usdc.png
+    - lib/images/real.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
